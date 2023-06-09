@@ -7,6 +7,7 @@ in a file named "NFAWait.ser" that is created in the same directory where the co
 you've added your items you can simply run the program and it will load the items from the file and display them.
 
 --- Instructions ---
+
 If you're not familiar with Java, you need to have Java Development Kit (JDK) installed on your computer to
 compile and use this program.
 
