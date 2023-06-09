@@ -30,6 +30,7 @@ public class NFAWait {
 	private static final String FILE_NAME = "NFAWait.ser"; //Name of the database file.
 
 	/**
+	 * @param itemList ArrayList of items so it can be passed to functions called from this function.
 	 * Prints the list of items in itemList.
 	 */
 	public static void printListItems(ArrayList<NFAItem> itemList) {
@@ -45,6 +46,8 @@ public class NFAWait {
 	}
 
 	/**
+	 * @param input Scanner to get user input.
+	 * @param itemList ArrayList of items so it can be passed to functions called from this function.
 	 * Get input from the user and use it to create a new NFAItem in the itemList.
 	 */
 	public static void addItem(Scanner input, ArrayList<NFAItem> itemList) {
@@ -78,6 +81,8 @@ public class NFAWait {
 	}
 
 	/**
+	 * @param input Scanner to get user input.
+	 * @param itemList ArrayList of items so it can be passed to functions called from this function.
 	 * Removes an item from the itemList
 	 */
 	public static void removeItem(Scanner input, ArrayList<NFAItem> itemList) {
@@ -92,6 +97,8 @@ public class NFAWait {
 	}
 
 	/**
+	 * @param input Scanner to get user input.
+	 * @param itemList ArrayList of items so it can be passed to functions called from this function.
 	 * Handles menu options for add remove and quit.
 	 */
 	public static void menu(Scanner input, ArrayList<NFAItem> itemList) {
@@ -112,6 +119,7 @@ public class NFAWait {
 
 	/**
 	 * Handles getting the contents of the serialized itemList file.
+	 * @return An ArrayList<NFAItem>
 	 */
 	public static ArrayList<NFAItem> fileInputHandler() {
 		try {
@@ -140,7 +148,7 @@ public class NFAWait {
 	}
 
 	/**
-	 *
+	 * @param itemList ArrayList of items so it can be written to a file.
 	 * Handles updating the serialized itemList file.
 	 */
 	public static void fileOutputHandler(ArrayList<NFAItem> itemList) {
