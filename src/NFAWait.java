@@ -39,7 +39,7 @@ public class NFAWait {
 		} else {
 			int index = 0;
 			for (NFAItem item : itemList) {
-				System.out.println("#" + index++);
+				System.out.println("Item #" + index++);
 				System.out.println(item.toString() + "\n");
 			}
 		}
@@ -67,7 +67,7 @@ public class NFAWait {
 			System.out.print("Please enter the submission year: ");
 			int year = input.nextInt();
 			try {
-				submissionDate = LocalDate.of(year, month, day); // Try to create the datetime object for the expiration date.
+				submissionDate = LocalDate.of(year, month, day); // Try to create the datetime object for the submission date.
 			} catch (DateTimeException e) { // Warn the user if they input a nonreal date.
 				System.err.println("You entered a wrong date please try again");
 			}
@@ -119,6 +119,7 @@ public class NFAWait {
 
 	/**
 	 * Handles getting the contents of the serialized itemList file.
+	 *
 	 * @return An ArrayList<NFAItem>
 	 */
 	public static ArrayList<NFAItem> fileInputHandler() {
@@ -130,7 +131,7 @@ public class NFAWait {
 		} catch (IOException ioe) {
 			System.err.println("Exception: File I/O");
 		}
-		ArrayList itemList = null;
+		ArrayList<NFAItem> itemList = new ArrayList<>();
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME));
 			itemList = (ArrayList<NFAItem>) ois.readObject();
@@ -169,13 +170,14 @@ public class NFAWait {
 	 */
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in); //Create a scanner to get user input.
-		ArrayList<NFAItem> itemList = new ArrayList<>(fileInputHandler()); //Create an empty ArrayList in which to store NFAItems.
+		//Create an empty ArrayList in which to store NFAItems.
+		ArrayList<NFAItem> itemList = fileInputHandler();
 		menu(input, itemList); //Start the menu.
 		System.exit(0); //Bye-bye!
 	}
 }
 
-/**r
+/**
  * Class to describe the attributes of an NFA item.
  */
 class NFAItem implements Serializable {
